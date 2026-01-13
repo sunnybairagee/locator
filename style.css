@@ -1,0 +1,210 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+body{
+  font-family: Arial, sans-serif;
+  background-color: #e8e8e8;
+}
+a, svg, select, button, input, div, span{
+  -webkit-tap-highlight-color: transparent;
+}
+.top_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  background-color: white;
+}
+.logo{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+.logo:active{
+  scale: 0.9;
+}
+.choose_file {
+  width: 96%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+.choose_file:active{
+  scale: 0.9;
+}
+.select_ratio{
+  position: relative;
+  width: 96%;
+  margin: 10px auto;
+}
+.select_ratio select{
+  appearance: none;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+}
+.select_arrow{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.row{
+  width: 96%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap:5px;
+  margin: 10px auto;
+}
+
+select{
+  flex:1;
+  padding:10px;
+  font-size:16px;
+}
+.row button{
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+.row button:active{
+  scale: 0.9;
+}
+
+.canvas-wrap{
+  width:96%;
+  margin: auto;
+  max-height:70vh;
+  overflow:auto;
+  border:1px solid #ccc;
+  background-color: white;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.canvas-wrap::-webkit-scrollbar{
+  display: none;
+}
+
+canvas{
+  display:block;
+  margin:auto;
+  min-height: 300px;
+}
+
+.confirm_box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 96%;
+  margin: 10px auto;
+}
+.confirm_box button{
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: white;
+  width: auto;
+  flex: 0 0 auto;
+}
+.confirm_box button:active{
+  scale: 0.9;
+}
+
+pre{
+  background:#eee;
+  padding:10px;
+  font-size:14px;
+  overflow:auto;
+}
+
+.output_result{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.copy_code{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+
+.coord-popover{
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  background:#1e1e1e;
+  color:#fff;
+  border-radius:12px;
+  padding:14px;
+  width:350px;
+  font-family: monospace;
+}
+
+.coord-popover::backdrop{
+  background: rgba(0,0,0,0.3);
+}
+
+.popover-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+.popover-header button{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.coord-popover pre{
+  background:#111;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:10px;
+  white-space:pre-wrap;
+}
+
+.coord-popover .copy-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  padding:8px;
+  border:none;
+  border-radius:8px;
+  background:#2a2a2a;
+  color:#fff;
+  cursor:pointer;
+}
+.coord-popover .copy-btn:active{
+  background-color: #5d5d5d;
+}

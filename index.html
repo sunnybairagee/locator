@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watermark Locator</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="top_header">
+  <a href="./" class="logo">Watermark Locator</a>
+  <span id="output">SCROLL</span>
+</div>
+
+<input type="file" id="file" accept="image/*" hidden>
+<label for="file" class="choose_file">
+  <svg width="25" height="25" viewBox="0 0 256 256" xml:space="preserve">
+    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+      <path d="M 55.51 55.205 l -8.385 -8.385 c -0.141 -0.141 -0.296 -0.268 -0.463 -0.379 c -0.066 -0.044 -0.137 -0.073 -0.205 -0.112 c -0.102 -0.057 -0.202 -0.118 -0.311 -0.163 c -0.093 -0.039 -0.191 -0.06 -0.287 -0.089 c -0.091 -0.027 -0.178 -0.062 -0.272 -0.081 c -0.191 -0.038 -0.385 -0.058 -0.579 -0.058 c -0.003 0 -0.005 -0.001 -0.007 -0.001 c 0 0 0 0 0 0 c -0.197 0 -0.394 0.021 -0.588 0.059 c -0.087 0.017 -0.168 0.05 -0.253 0.075 c -0.103 0.03 -0.207 0.054 -0.307 0.095 c -0.101 0.042 -0.193 0.1 -0.289 0.152 c -0.076 0.042 -0.154 0.075 -0.227 0.123 c -0.166 0.111 -0.32 0.236 -0.461 0.377 l -8.386 8.386 c -1.172 1.171 -1.172 3.071 0 4.242 c 1.171 1.172 3.071 1.172 4.242 0 L 42 56.18 v 21.26 c 0 1.657 1.343 3 3 3 c 1.657 0 3 -1.343 3 -3 V 56.18 l 3.268 3.268 c 0.586 0.586 1.354 0.879 2.121 0.879 s 1.535 -0.293 2.121 -0.879 C 56.682 58.276 56.682 56.376 55.51 55.205 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      <path d="M 69.893 70.998 H 56.731 c -1.657 0 -3 -1.343 -3 -3 s 1.343 -3 3 -3 h 13.161 C 77.672 64.998 84 58.67 84 50.891 c 0 -7.779 -6.328 -14.107 -14.107 -14.107 h -1.297 c -1.631 0 -2.964 -1.303 -2.999 -2.934 C 65.375 23.765 56.994 15.56 46.916 15.56 h -3.832 c -10.079 0 -18.458 8.205 -18.68 18.289 c -0.036 1.631 -1.368 2.934 -3 2.934 h -1.297 C 12.329 36.783 6 43.112 6 50.891 c 0 7.779 6.329 14.107 14.107 14.107 h 13.162 c 1.657 0 3 1.343 3 3 s -1.343 3 -3 3 H 20.107 C 9.02 70.998 0 61.978 0 50.891 C 0 40.297 8.234 31.59 18.64 30.836 C 20.331 18.869 30.743 9.56 43.084 9.56 h 3.832 c 12.341 0 22.754 9.309 24.445 21.276 C 81.765 31.591 90 40.297 90 50.891 C 90 61.978 80.979 70.998 69.893 70.998 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+    </g>
+  </svg>&nbsp;&nbsp;Upload image
+</label>
+
+<div class="select_ratio">
+  <select id="ratio" onchange="setRatio()">
+    <option value="original">Original</option>
+    <option value="9:16">9:16 (YouTube Shorts)</option>
+    <option value="1:1">1:1</option>
+    <option value="16:9">16:9</option>
+  </select>
+  <div class="select_arrow">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 75.185 37.346 H 14.815 c -0.39 0 -0.745 -0.227 -0.908 -0.581 c -0.163 -0.355 -0.105 -0.772 0.147 -1.069 L 44.239 0.342 c 0.381 -0.445 1.141 -0.445 1.522 0 l 30.185 35.354 c 0.253 0.297 0.311 0.714 0.147 1.069 C 75.931 37.119 75.576 37.346 75.185 37.346 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 45 90.008 c -0.293 0 -0.57 -0.128 -0.761 -0.351 L 14.054 54.303 c -0.253 -0.297 -0.311 -0.714 -0.147 -1.069 c 0.164 -0.355 0.518 -0.581 0.908 -0.581 h 60.371 c 0.391 0 0.745 0.227 0.908 0.581 s 0.105 0.772 -0.147 1.069 L 45.761 89.658 C 45.57 89.88 45.293 90.008 45 90.008 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<div class="row">
+  <button onclick="setMode('scroll')">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 90 82.839 c 0 1.792 -0.684 3.583 -2.05 4.95 c -2.734 2.734 -7.166 2.734 -9.9 0 L 45 54.738 l -33.05 33.05 c -2.733 2.734 -7.166 2.734 -9.899 0 c -2.733 -2.733 -2.733 -7.166 0 -9.899 l 38 -38 c 2.733 -2.733 7.166 -2.733 9.9 0 l 38 38 C 89.316 79.256 90 81.048 90 82.839 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 90 45.161 c 0 1.792 -0.684 3.583 -2.05 4.95 c -2.734 2.734 -7.166 2.734 -9.9 0 L 45 17.061 l -33.05 33.05 c -2.733 2.734 -7.166 2.734 -9.899 0 c -2.732 -2.733 -2.733 -7.166 0 -9.9 l 38 -38 c 2.733 -2.733 7.166 -2.733 9.9 0 l 38 38 C 89.316 41.578 90 43.37 90 45.161 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+
+  <button onclick="setMode('draw')">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 88.436 5.704 l -4.14 -4.14 c -2.085 -2.085 -5.466 -2.085 -7.551 0 l -6.181 6.181 L 27.239 51.07 c -0.66 0.66 -1.166 1.459 -1.479 2.338 l -5.245 14.699 c -0.306 0.857 0.521 1.684 1.378 1.378 l 14.699 -5.245 c 0.879 -0.314 1.678 -0.819 2.338 -1.479 l 43.325 -43.325 l 6.181 -6.181 C 90.521 11.17 90.521 7.789 88.436 5.704 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 75.857 90 H 9.53 C 4.275 90 0 85.726 0 80.471 V 14.142 c 0 -5.255 4.275 -9.53 9.53 -9.53 h 34.803 c 2.209 0 4 1.791 4 4 s -1.791 4 -4 4 H 9.53 c -0.844 0 -1.53 0.686 -1.53 1.53 v 66.329 C 8 81.313 8.686 82 9.53 82 h 66.328 c 0.844 0 1.53 -0.687 1.53 -1.529 V 45.667 c 0 -2.209 1.791 -4 4 -4 s 4 1.791 4 4 v 34.804 C 85.388 85.726 81.112 90 75.857 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+      </svg>
+  </button>
+
+  <button onclick="setMode('edit')">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 86 34.303 c -2.209 0 -4 -1.791 -4 -4 V 8 H 59.697 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 H 86 c 2.209 0 4 1.791 4 4 v 26.303 C 90 32.512 88.209 34.303 86 34.303 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 33.395 60.604 c -1.024 0 -2.047 -0.391 -2.829 -1.172 c -1.562 -1.562 -1.562 -4.095 0 -5.656 L 83.172 1.171 c 1.561 -1.562 4.094 -1.562 5.656 0 c 1.563 1.563 1.563 4.095 0 5.657 L 36.224 59.433 C 35.442 60.214 34.418 60.604 33.395 60.604 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 75.128 90 H 14.872 C 6.671 90 0 83.328 0 75.128 V 14.872 C 0 6.671 6.671 0 14.872 0 h 18.523 c 2.209 0 4 1.791 4 4 s -1.791 4 -4 4 H 14.872 C 11.083 8 8 11.083 8 14.872 v 60.256 C 8 78.917 11.083 82 14.872 82 h 60.256 C 78.917 82 82 78.917 82 75.128 V 56.604 c 0 -2.209 1.791 -4 4 -4 s 4 1.791 4 4 v 18.523 C 90 83.328 83.328 90 75.128 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+      </svg>
+  </button>
+
+  <button onclick="zoomIn()">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 45 90 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 c 2.762 0 5 2.239 5 5 v 80 C 50 87.762 47.762 90 45 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 85 50 H 5 c -2.761 0 -5 -2.238 -5 -5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 C 90 47.762 87.762 50 85 50 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+
+  <button onclick="zoomOut()">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 86.5 48.5 h -83 C 1.567 48.5 0 46.933 0 45 s 1.567 -3.5 3.5 -3.5 h 83 c 1.933 0 3.5 1.567 3.5 3.5 S 88.433 48.5 86.5 48.5 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 86.5 48.5 h -83 C 1.567 48.5 0 46.933 0 45 s 1.567 -3.5 3.5 -3.5 h 83 c 1.933 0 3.5 1.567 3.5 3.5 S 88.433 48.5 86.5 48.5 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+
+  <button onclick="resetZoom()">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 6 90 c -1.536 0 -3.071 -0.586 -4.243 -1.758 c -2.343 -2.343 -2.343 -6.142 0 -8.484 l 78 -78 c 2.342 -2.343 6.143 -2.343 8.484 0 c 2.344 2.343 2.344 6.142 0 8.485 l -78 78 C 9.071 89.414 7.536 90 6 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 84 90 c -1.535 0 -3.071 -0.586 -4.242 -1.758 l -78 -78 c -2.343 -2.343 -2.343 -6.142 0 -8.485 c 2.343 -2.343 6.143 -2.343 8.485 0 l 78 78 c 2.344 2.343 2.344 6.142 0 8.484 C 87.071 89.414 85.535 90 84 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+</div>
+
+<div class="canvas-wrap" id="wrap">
+  <canvas id="canvas"></canvas>
+</div>
+
+<div class="confirm_box">
+  <button onclick="resetDraw()">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 7.288 48.34 c 0.061 0.04 0.129 0.068 0.193 0.105 c 0.18 0.105 0.363 0.201 0.559 0.277 c 0.093 0.036 0.19 0.06 0.286 0.089 c 0.175 0.053 0.351 0.098 0.535 0.127 c 0.049 0.008 0.094 0.028 0.144 0.034 C 9.164 48.99 9.322 49 9.481 49 c 0 0 0 0 0.001 0 c 0 0 0 0 0 0 c 0 0 0 0 0 0 c 0.267 0 0.531 -0.028 0.79 -0.08 c 0.154 -0.031 0.297 -0.086 0.443 -0.134 c 0.101 -0.033 0.206 -0.054 0.304 -0.094 c 0.162 -0.067 0.31 -0.158 0.46 -0.245 c 0.075 -0.043 0.156 -0.075 0.228 -0.124 c 0.217 -0.146 0.42 -0.311 0.604 -0.495 c 0 0 0 0 0 0 l 7.492 -7.492 c 1.562 -1.562 1.562 -4.095 0 -5.657 c -1.149 -1.149 -2.822 -1.445 -4.249 -0.903 c 4.535 -11.868 16.033 -20.322 29.475 -20.322 c 12.266 0 23.516 7.2 28.658 18.342 c 0.926 2.004 3.3 2.881 5.309 1.956 c 2.005 -0.926 2.881 -3.302 1.955 -5.308 C 74.503 14.478 60.403 5.455 45.027 5.455 c -17.837 0 -32.947 11.873 -37.859 28.129 c -1.224 -1.611 -3.48 -2.084 -5.247 -1.008 c -1.887 1.148 -2.486 3.609 -1.338 5.496 l 5.481 9.007 c 0.014 0.023 0.035 0.041 0.049 0.063 c 0.125 0.195 0.268 0.375 0.424 0.545 c 0.036 0.039 0.064 0.085 0.101 0.122 C 6.835 48.009 7.053 48.186 7.288 48.34 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 89.416 51.929 l -5.48 -9.008 c -0.014 -0.023 -0.035 -0.04 -0.049 -0.063 c -0.125 -0.195 -0.268 -0.375 -0.424 -0.546 c -0.035 -0.039 -0.063 -0.084 -0.1 -0.121 c -0.197 -0.199 -0.415 -0.376 -0.65 -0.531 c -0.061 -0.04 -0.129 -0.067 -0.192 -0.104 c -0.18 -0.105 -0.364 -0.201 -0.56 -0.277 c -0.093 -0.036 -0.19 -0.06 -0.287 -0.089 c -0.174 -0.053 -0.35 -0.098 -0.534 -0.127 c -0.049 -0.008 -0.095 -0.028 -0.144 -0.034 c -0.07 -0.008 -0.138 0.003 -0.208 -0.001 C 80.697 41.021 80.611 41 80.519 41 c -0.082 0 -0.159 0.019 -0.239 0.024 c -0.121 0.007 -0.24 0.018 -0.36 0.036 c -0.172 0.026 -0.338 0.065 -0.503 0.113 c -0.105 0.03 -0.209 0.058 -0.312 0.097 c -0.178 0.067 -0.344 0.152 -0.509 0.243 c -0.082 0.045 -0.166 0.082 -0.245 0.133 c -0.237 0.153 -0.46 0.326 -0.659 0.524 c 0 0 -0.001 0.001 -0.001 0.001 l 0 0 l 0 0 l -7.492 7.492 c -1.562 1.562 -1.562 4.095 0 5.656 c 1.148 1.15 2.822 1.446 4.249 0.904 c -4.535 11.868 -16.033 20.321 -29.475 20.321 c -12.707 0 -24.117 -7.563 -29.068 -19.268 c -0.861 -2.034 -3.209 -2.988 -5.242 -2.125 c -2.035 0.86 -2.986 3.207 -2.126 5.242 c 6.206 14.671 20.508 24.151 36.436 24.151 c 17.831 0 32.937 -11.864 37.854 -28.111 c 0.774 1.015 1.96 1.574 3.176 1.574 c 0.708 0 1.426 -0.188 2.075 -0.584 C 89.966 56.276 90.565 53.816 89.416 51.929 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+
+  <button onclick="confirmBox()">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 81.73 50.284 c 4.068 -2.349 4.068 -8.22 0 -10.569 L 48.051 20.271 L 14.372 0.827 c -4.068 -2.349 -9.153 0.587 -9.153 5.284 V 45 v 38.889 c 0 4.697 5.085 7.633 9.153 5.284 l 33.679 -19.444 L 81.73 50.284 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+</div>
+
+<!-- Popover for coordinates -->
+<div id="coordPopover" popover class="coord-popover">
+  <div class="popover-header">
+    <span>Coordinates</span>
+    <button onclick="coordPopover.hidePopover()">✖</button>
+  </div>
+
+  <pre id="popoverOutput"></pre>
+
+  <button id="copyBtn" class="copy-btn" onclick="copyPopover()">📄 Copy</button>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
