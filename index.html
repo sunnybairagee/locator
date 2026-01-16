@@ -13,32 +13,16 @@
   <span id="output">SCROLL</span>
 </div>
 
-<input type="file" id="file" accept="image/*" hidden>
+
+<input type="file" id="file" accept="image/*,video/*" hidden>
 <label for="file" class="choose_file">
   <svg width="25" height="25" viewBox="0 0 256 256" xml:space="preserve">
     <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
       <path d="M 55.51 55.205 l -8.385 -8.385 c -0.141 -0.141 -0.296 -0.268 -0.463 -0.379 c -0.066 -0.044 -0.137 -0.073 -0.205 -0.112 c -0.102 -0.057 -0.202 -0.118 -0.311 -0.163 c -0.093 -0.039 -0.191 -0.06 -0.287 -0.089 c -0.091 -0.027 -0.178 -0.062 -0.272 -0.081 c -0.191 -0.038 -0.385 -0.058 -0.579 -0.058 c -0.003 0 -0.005 -0.001 -0.007 -0.001 c 0 0 0 0 0 0 c -0.197 0 -0.394 0.021 -0.588 0.059 c -0.087 0.017 -0.168 0.05 -0.253 0.075 c -0.103 0.03 -0.207 0.054 -0.307 0.095 c -0.101 0.042 -0.193 0.1 -0.289 0.152 c -0.076 0.042 -0.154 0.075 -0.227 0.123 c -0.166 0.111 -0.32 0.236 -0.461 0.377 l -8.386 8.386 c -1.172 1.171 -1.172 3.071 0 4.242 c 1.171 1.172 3.071 1.172 4.242 0 L 42 56.18 v 21.26 c 0 1.657 1.343 3 3 3 c 1.657 0 3 -1.343 3 -3 V 56.18 l 3.268 3.268 c 0.586 0.586 1.354 0.879 2.121 0.879 s 1.535 -0.293 2.121 -0.879 C 56.682 58.276 56.682 56.376 55.51 55.205 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
       <path d="M 69.893 70.998 H 56.731 c -1.657 0 -3 -1.343 -3 -3 s 1.343 -3 3 -3 h 13.161 C 77.672 64.998 84 58.67 84 50.891 c 0 -7.779 -6.328 -14.107 -14.107 -14.107 h -1.297 c -1.631 0 -2.964 -1.303 -2.999 -2.934 C 65.375 23.765 56.994 15.56 46.916 15.56 h -3.832 c -10.079 0 -18.458 8.205 -18.68 18.289 c -0.036 1.631 -1.368 2.934 -3 2.934 h -1.297 C 12.329 36.783 6 43.112 6 50.891 c 0 7.779 6.329 14.107 14.107 14.107 h 13.162 c 1.657 0 3 1.343 3 3 s -1.343 3 -3 3 H 20.107 C 9.02 70.998 0 61.978 0 50.891 C 0 40.297 8.234 31.59 18.64 30.836 C 20.331 18.869 30.743 9.56 43.084 9.56 h 3.832 c 12.341 0 22.754 9.309 24.445 21.276 C 81.765 31.591 90 40.297 90 50.891 C 90 61.978 80.979 70.998 69.893 70.998 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
     </g>
-  </svg>&nbsp;&nbsp;Upload image
+  </svg>&nbsp;&nbsp;Upload Image
 </label>
-
-<div class="select_ratio">
-  <select id="ratio" onchange="setRatio()">
-    <option value="original">Original</option>
-    <option value="9:16">9:16 (YouTube Shorts)</option>
-    <option value="1:1">1:1</option>
-    <option value="16:9">16:9</option>
-  </select>
-  <div class="select_arrow">
-    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
-      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-        <path d="M 75.185 37.346 H 14.815 c -0.39 0 -0.745 -0.227 -0.908 -0.581 c -0.163 -0.355 -0.105 -0.772 0.147 -1.069 L 44.239 0.342 c 0.381 -0.445 1.141 -0.445 1.522 0 l 30.185 35.354 c 0.253 0.297 0.311 0.714 0.147 1.069 C 75.931 37.119 75.576 37.346 75.185 37.346 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
-        <path d="M 45 90.008 c -0.293 0 -0.57 -0.128 -0.761 -0.351 L 14.054 54.303 c -0.253 -0.297 -0.311 -0.714 -0.147 -1.069 c 0.164 -0.355 0.518 -0.581 0.908 -0.581 h 60.371 c 0.391 0 0.745 0.227 0.908 0.581 s 0.105 0.772 -0.147 1.069 L 45.761 89.658 C 45.57 89.88 45.293 90.008 45 90.008 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
-      </g>
-    </svg>
-  </div>
-</div>
 
 <div class="row">
   <button onclick="setMode('scroll')">
@@ -69,6 +53,14 @@
       </svg>
   </button>
 
+  <button onclick="deleteSelectedBox()">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 89.959 35.336 c 0.216 -2.191 -0.436 -4.336 -1.832 -6.038 L 68.81 5.763 c -1.396 -1.703 -3.373 -2.759 -5.565 -2.975 c -2.188 -0.214 -4.337 0.435 -6.039 1.833 L 3.015 49.098 c -1.703 1.397 -2.759 3.374 -2.975 5.565 C -0.175 56.855 0.475 59 1.873 60.702 L 21.19 84.238 c 1.397 1.702 3.374 2.759 5.566 2.975 c 0.275 0.027 0.549 0.04 0.822 0.04 c 0.086 0 0.17 -0.008 0.256 -0.011 c 0.037 0.001 0.071 0.011 0.109 0.011 h 58.645 c 1.657 0 3 -1.343 3 -3 c 0 -1.657 -1.343 -3 -3 -3 H 37.824 l 12.489 -10.25 l 0 0 l 36.673 -30.1 C 88.687 39.505 89.744 37.528 89.959 35.336 z M 6.51 56.895 c -0.38 -0.464 -0.558 -1.048 -0.499 -1.645 s 0.347 -1.135 0.81 -1.515 l 12.881 -10.572 L 41.868 70.17 l -12.88 10.571 c -0.119 0.098 -0.246 0.182 -0.378 0.251 c -0.004 0.002 -0.009 0.003 -0.013 0.005 c -0.494 0.256 -1.056 0.308 -1.578 0.178 c -0.033 -0.008 -0.068 -0.01 -0.1 -0.02 c -0.118 -0.035 -0.233 -0.085 -0.344 -0.14 c -0.019 -0.009 -0.04 -0.014 -0.058 -0.024 c -0.106 -0.056 -0.205 -0.126 -0.302 -0.199 c -0.021 -0.016 -0.046 -0.028 -0.067 -0.045 c -0.115 -0.093 -0.222 -0.199 -0.32 -0.318 L 6.51 56.895 z M 83.988 34.749 c -0.059 0.597 -0.346 1.135 -0.81 1.516 l -36.673 30.1 L 24.34 39.358 l 36.673 -30.1 c 0.405 -0.332 0.903 -0.51 1.421 -0.51 c 0.074 0 0.148 0.003 0.224 0.011 c 0.597 0.059 1.135 0.346 1.515 0.81 l 19.317 23.535 C 83.87 33.568 84.047 34.152 83.988 34.749 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button>
+
   <button onclick="zoomIn()">
     <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
       <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
@@ -90,8 +82,10 @@
   <button onclick="resetZoom()">
     <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
       <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-        <path d="M 6 90 c -1.536 0 -3.071 -0.586 -4.243 -1.758 c -2.343 -2.343 -2.343 -6.142 0 -8.484 l 78 -78 c 2.342 -2.343 6.143 -2.343 8.484 0 c 2.344 2.343 2.344 6.142 0 8.485 l -78 78 C 9.071 89.414 7.536 90 6 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
-        <path d="M 84 90 c -1.535 0 -3.071 -0.586 -4.242 -1.758 l -78 -78 c -2.343 -2.343 -2.343 -6.142 0 -8.485 c 2.343 -2.343 6.143 -2.343 8.485 0 l 78 78 c 2.344 2.343 2.344 6.142 0 8.484 C 87.071 89.414 85.535 90 84 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 13.657 8 h 5.021 c 2.209 0 4 -1.791 4 -4 s -1.791 -4 -4 -4 H 4 C 3.984 0 3.968 0.005 3.952 0.005 C 3.706 0.008 3.46 0.031 3.217 0.079 c -0.121 0.024 -0.233 0.069 -0.35 0.104 C 2.734 0.222 2.6 0.252 2.47 0.306 c -0.132 0.055 -0.252 0.13 -0.377 0.198 c -0.104 0.057 -0.213 0.103 -0.312 0.17 C 1.58 0.808 1.395 0.963 1.222 1.13 C 1.206 1.145 1.187 1.156 1.171 1.171 C 1.155 1.188 1.145 1.207 1.129 1.224 C 0.962 1.396 0.808 1.58 0.674 1.78 c -0.07 0.104 -0.118 0.216 -0.176 0.325 C 0.432 2.226 0.359 2.341 0.306 2.469 c -0.057 0.137 -0.09 0.279 -0.13 0.42 C 0.144 2.998 0.102 3.103 0.079 3.216 C 0.028 3.475 0 3.738 0 4.001 v 14.677 c 0 2.209 1.791 4 4 4 s 4 -1.791 4 -4 v -5.021 l 23.958 23.958 c 0.781 0.781 1.805 1.171 2.829 1.171 s 2.047 -0.391 2.829 -1.171 c 1.562 -1.563 1.562 -4.095 0 -5.657 L 13.657 8 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 86 67.321 c -2.209 0 -4 1.791 -4 4 v 5.022 L 58.042 52.386 c -1.561 -1.563 -4.096 -1.563 -5.656 0 c -1.563 1.562 -1.563 4.095 0 5.656 L 76.344 82 h -5.022 c -2.209 0 -4 1.791 -4 4 s 1.791 4 4 4 H 86 c 0.263 0 0.525 -0.028 0.783 -0.079 c 0.117 -0.023 0.226 -0.067 0.339 -0.101 c 0.137 -0.04 0.275 -0.072 0.408 -0.127 c 0.133 -0.055 0.254 -0.131 0.38 -0.2 c 0.103 -0.056 0.21 -0.101 0.308 -0.167 c 0.439 -0.293 0.815 -0.67 1.109 -1.109 c 0.065 -0.097 0.109 -0.201 0.164 -0.302 c 0.07 -0.128 0.147 -0.251 0.203 -0.386 c 0.055 -0.132 0.086 -0.269 0.126 -0.405 c 0.034 -0.114 0.078 -0.223 0.101 -0.341 C 89.972 86.525 90 86.263 90 86 V 71.321 C 90 69.112 88.209 67.321 86 67.321 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 31.958 52.386 L 8 76.343 v -5.022 c 0 -2.209 -1.791 -4 -4 -4 s -4 1.791 -4 4 v 14.677 c 0 0.263 0.028 0.526 0.079 0.785 c 0.023 0.113 0.065 0.218 0.097 0.328 c 0.041 0.141 0.074 0.283 0.13 0.419 C 0.36 87.66 0.434 87.777 0.5 87.899 c 0.058 0.107 0.105 0.218 0.174 0.32 c 0.145 0.217 0.31 0.42 0.493 0.604 c 0.002 0.002 0.003 0.004 0.004 0.005 c 0 0 0 0 0 0 c 0.186 0.186 0.391 0.352 0.61 0.498 c 0.1 0.067 0.208 0.112 0.312 0.169 c 0.125 0.068 0.244 0.143 0.377 0.198 c 0.134 0.055 0.273 0.087 0.411 0.128 c 0.112 0.033 0.22 0.076 0.336 0.099 C 3.475 89.972 3.737 90 4 90 h 14.679 c 2.209 0 4 -1.791 4 -4 s -1.791 -4 -4 -4 h -5.022 l 23.958 -23.958 c 1.562 -1.562 1.562 -4.095 0 -5.656 C 36.052 50.823 33.52 50.823 31.958 52.386 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 89.921 3.217 c -0.023 -0.118 -0.067 -0.227 -0.101 -0.34 c -0.04 -0.136 -0.071 -0.274 -0.126 -0.406 c -0.056 -0.134 -0.132 -0.256 -0.201 -0.382 c -0.056 -0.102 -0.101 -0.209 -0.167 -0.307 c -0.147 -0.219 -0.313 -0.424 -0.498 -0.61 c 0 0 0 0 0 0 c -0.002 -0.002 -0.004 -0.003 -0.005 -0.004 c -0.184 -0.184 -0.387 -0.348 -0.604 -0.493 c -0.101 -0.068 -0.21 -0.114 -0.316 -0.171 C 87.78 0.435 87.661 0.36 87.53 0.306 c -0.131 -0.054 -0.267 -0.085 -0.401 -0.125 c -0.116 -0.034 -0.226 -0.079 -0.346 -0.102 c -0.242 -0.048 -0.489 -0.071 -0.735 -0.074 C 86.032 0.005 86.016 0 86 0 H 71.321 c -2.209 0 -4 1.791 -4 4 s 1.791 4 4 4 h 5.022 L 52.386 31.958 c -1.563 1.563 -1.563 4.095 0 5.657 c 0.78 0.781 1.805 1.171 2.828 1.171 s 2.048 -0.391 2.828 -1.171 L 82 13.657 v 5.022 c 0 2.209 1.791 4 4 4 s 4 -1.791 4 -4 V 4 C 90 3.737 89.972 3.475 89.921 3.217 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
       </g>
     </svg>
   </button>
@@ -110,6 +104,15 @@
       </g>
     </svg>
   </button>
+
+  <!-- <button onclick="testBackend()">
+    <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
+      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+        <path d="M 85 90 H 5 c -2.761 0 -5 -2.238 -5 -5 V 5 c 0 -2.761 2.239 -5 5 -5 h 80 c 2.762 0 5 2.239 5 5 v 80 C 90 87.762 87.762 90 85 90 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(39,196,72); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+        <path d="M 38.269 64.615 c -1.28 0 -2.559 -0.488 -3.536 -1.465 L 18.964 47.383 c -1.953 -1.953 -1.953 -5.119 0 -7.071 c 1.953 -1.952 5.118 -1.952 7.071 0 l 12.233 12.232 l 25.696 -25.695 c 1.951 -1.952 5.119 -1.952 7.07 0 c 1.953 1.953 1.953 5.119 0 7.071 L 41.804 63.15 C 40.828 64.127 39.548 64.615 38.269 64.615 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+      </g>
+    </svg>
+  </button> -->
 
   <button onclick="confirmBox()">
     <svg width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
