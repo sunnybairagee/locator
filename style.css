@@ -33,6 +33,7 @@ a, svg, select, button, input, div, span{
 .logo:active{
   scale: 0.9;
 }
+
 .choose_file {
   width: 96%;
   margin: auto;
@@ -47,32 +48,11 @@ a, svg, select, button, input, div, span{
 .choose_file:active{
   scale: 0.9;
 }
-.select_ratio{
-  position: relative;
-  width: 96%;
-  margin: 10px auto;
-}
-.select_ratio select{
-  appearance: none;
-  width: 100%;
-  background-color: white;
-  border-radius: 5px;
-}
-.select_arrow{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-}
+
 .row{
   width: 96%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap:5px;
   margin: 10px auto;
 }
